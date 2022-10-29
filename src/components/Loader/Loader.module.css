@@ -1,7 +1,8 @@
 .wraper {
-    display: flex;
+    display: flex; 
+    flex-direction: row;
+    align-content: center;
     align-items: center;
-    justify-content: center;
 }
 
 .loader {

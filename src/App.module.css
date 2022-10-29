@@ -1,0 +1,21 @@
+.tittle {
+  display: flex;
+  justify-content: center;
+  color: #fc9;
+  text-shadow: 3px 3px 0px #333, 5px 5px 0px #999;
+  font-family: 'Gill Sans', 'Gill Sans MT', 'Myriad Pro',
+    'DejaVu Sans Condensed', Helvetica, Arial, sans-serif;
+  font-size: 100px;
+  margin: 0;
+}
+.textTittle {
+    display: flex;
+  justify-content: center;
+  color: #fc9;
+  text-shadow: 3px 3px 0px #333, 5px 5px 0px #999;
+  font-family: 'Gill Sans', 'Gill Sans MT', 'Myriad Pro',
+    'DejaVu Sans Condensed', Helvetica, Arial, sans-serif;
+  font-size: 50px;
+  margin: 0;
+  margin-bottom: 15px;
+}
