@@ -1,0 +1,9 @@
+.wraper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader {
+    margin-top: 20px;
+}

@@ -1,20 +1,19 @@
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
-import { getVisibleContacts } from '../../redux/selectors';
-import * as actions from '../../redux/actions';
+import { contactsSelectors, contactsOperations} from 'redux/contacts';
 import styles from './ContactList.module.css';
 
 function ContactList() {
-  const contacts = useSelector(getVisibleContacts);
+  const contacts = useSelector(contactsSelectors.getVisibleContacts);
   const dispatch = useDispatch();
 
-  const removeContact = id => dispatch(actions.deleteContact(id));
+  const removeContact = id => dispatch(contactsOperations.deleteContact(id));
 
   return (
     <ul className={styles.taskList}>
-      {contacts.map(({ name, number, id }) => (
+      {contacts.map(({ name, phone, id }) => (
         <li className={styles.taskList_item} key={id}>
-          <p className={styles.taskList_name}>{name + ':  ' + number}</p>
+          <p className={styles.taskList_name}>{name + ':  ' + phone}</p>
           {
             <button
               className={styles.taskList_button}
@@ -37,7 +36,7 @@ ContactList.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
+      phone: PropTypes.string.isRequired,
     })
   ),
 };

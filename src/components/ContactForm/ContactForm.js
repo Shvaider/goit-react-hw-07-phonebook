@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
-import { getContacts } from '../../redux/selectors';
-import * as actions from '../../redux/actions'
+import { contactsSelectors, contactsOperations} from 'redux/contacts';
 import PropTypes from 'prop-types';
 import styles from './ContactForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 
 export default function ContactForm() {
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(contactsSelectors.selectContacts);
   const dispatch = useDispatch();
 
   const [name, setName] = useState('');
@@ -55,11 +54,11 @@ export default function ContactForm() {
     e.preventDefault();
 
     if (checkName(name)) {
-      alert('Вы не ввели все контактные данные');
+      alert(`${name}Вы не ввели все контактные данные`);
     }else if (checkNumber(number)) {
-      alert('Телефонный номер должен содержать только цифры');
+      alert(`${number}Телефонный номер должен содержать только цифры`);
     } else {
-      dispatch(actions.addContact(name, number))
+      dispatch(contactsOperations.addContact(name, number))
     }
 
     resetName()
