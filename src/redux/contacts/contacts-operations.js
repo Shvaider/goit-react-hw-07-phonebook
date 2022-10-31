@@ -22,9 +22,7 @@ export const fetchContacts = () => async dispatch => {
   } catch (error) {
     dispatch(fetchContactsError(error));
   }
-
   axios
-  .get('/contacts')
   .then(({ data }) => dispatch(fetchContactsSuccess(data)))
   .catch(error => dispatch(fetchContactsError(error)));
 };

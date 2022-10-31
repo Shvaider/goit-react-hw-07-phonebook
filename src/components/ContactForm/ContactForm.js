@@ -13,8 +13,8 @@ export default function ContactForm() {
   const [number, setNumber] = useState('');
 
 
-  let numberId = nanoid();
-  let nameId = nanoid();
+  const numberId = nanoid();
+  const nameId = nanoid();
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
@@ -54,9 +54,9 @@ export default function ContactForm() {
     e.preventDefault();
 
     if (checkName(name)) {
-      alert(`${name}Вы не ввели все контактные данные`);
+      alert(`${name}уже есть в контактах`);
     }else if (checkNumber(number)) {
-      alert(`${number}Телефонный номер должен содержать только цифры`);
+      alert(`${number}уже есть в ваших контактах!`);
     } else {
       dispatch(contactsOperations.addContact(name, number))
     }
